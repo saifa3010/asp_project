@@ -1,0 +1,72 @@
+﻿@{
+    var home = (IEnumerable<First_Project.Models.Homef>)ViewBag.HomePage;
+	var pro = (IEnumerable<First_Project.Models.Productf>)ViewBag.pro;
+
+}
+@{
+    ViewData["Title"] = "Store";
+    Layout = "_Home";
+
+}
+
+	<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
+								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img src="~/image/couch.png" class="img-fluid">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+<!-- Start Product Section -->
+<div class="product-section">
+	<div class="container">
+		<div class="row">
+
+			<!-- Start Column 1 -->
+			<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+				<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
+				<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
+				<p><a href="shop.html" class="btn">Explore</a></p>
+			</div>
+			<!-- End Column 1 -->
+			<!-- Start Column 2 -->
+			@foreach(var item in pro){
+			<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+				<a asp-controller="Interface" asp-action="AddToCart" asp-route-id="@item.Id" class="product-item">
+						
+
+		
+					<img src=@Url.Content("~/image/" + item.Imagepath)
+						 asp-append-version="true" class="img-fluid product-thumbnail" />
+					<h3 class="product-title">@item.ProductfName</h3>
+					<strong class="product-price">$@item.Price</strong>
+
+					<span class="icon-cross">
+						<img src="~/image/cross.svg" class="img-fluid">
+					</span>
+				
+				</a>
+			</div>
+			}
+			
+
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,56 @@
+﻿@model First_Project.Models.Aboutf
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_Dashboard";
+
+}
+
+<h1>Edit</h1>
+
+<h4>Aboutf</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label  class="control-label">Image</label>
+                <input asp-for="Imagepath" class="form-control" />
+                <span asp-validation-for="Imagepath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team" class="control-label"></label>
+                <input asp-for="Team" class="form-control" />
+                <span asp-validation-for="Team" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Text1" class="control-label"></label>
+                <input asp-for="Text1" class="form-control" />
+                <span asp-validation-for="Text1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Info1" class="control-label"></label>
+                <input asp-for="Info1" class="form-control" />
+                <span asp-validation-for="Info1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Info2" class="control-label"></label>
+                <input asp-for="Info2" class="form-control" />
+                <span asp-validation-for="Info2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
